@@ -1,0 +1,35 @@
+--Create a perfume sales database 
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, scent_type TEXT, price INTEGER, items_sold INTEGER); 
+
+INSERT INTO store VALUES (1, "YSL Mon Paris", "fruity floral", 85, 5);  
+INSERT INTO store VALUES (2, "Chloe", "powdery floral", 92, 6);
+INSERT INTO store VALUES (3, "Chanel Chance", "warm floral", 122, 3); 
+INSERT INTO store VALUES (4, "Chanel Chance Eau Tendre", "fruity floral", 94, 4); 
+INSERT INTO store VALUES (5, "Gucci Flora Gorgeous Gardenia", "fruity floral", 95, 5); 
+INSERT INTO store VALUES (6, "Dior J'adore", "warm floral", 100, 4); 
+INSERT INTO store VALUES (7, "Dior Miss Dior", "warm floral", 100, 2); 
+INSERT INTO store VALUES (8, "Dior Joy", "warm floral", 160, 2); 
+INSERT INTO store VALUES (9, "Nest New York Turkish Rose", "classic floral", 98, 2); 
+INSERT INTO store VALUES (10, "Burberry Her", "fruity floral", 123, 7);
+INSERT INTO store VALUES (11, "Burberry Blush", "fruity floral", 95, 3);
+INSERT INTO store VALUES (12, "Valentino Born in Roma Coral Fantasy", "fruity floral", 85, 3); 
+INSERT INTO store VALUES (13, "Versace Dylan Blue Pour Femme", "fruity floral", 74, 2);
+INSERT INTO store VALUES (14, "Dior Sauvage", "citrus and woods", 120, 3);
+INSERT INTO store VALUES (15, "Chanel Bleu de Chanel", "warm woods", 144, 4);
+
+--display the database ordered by price 
+SELECT * FROM store 
+ORDER BY price DESC; 
+
+--what is the total number of items sold for the warm floral scent type? 
+SELECT SUM(items_sold) AS "Total items sold" 
+FROM store
+WHERE scent_type = "warm floral";
+
+--what are the 5 most popular items? 
+SELECT name, price, items_sold 
+FROM store 
+ORDER BY items_sold DESC 
+LIMIT 5; 
+
